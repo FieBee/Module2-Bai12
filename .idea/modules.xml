@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/BT -  Using ArrayList LinkedList in Java Collection Framework/BT -  Using ArrayList LinkedList in Java Collection Framework.iml" filepath="$PROJECT_DIR$/BT -  Using ArrayList LinkedList in Java Collection Framework/BT -  Using ArrayList LinkedList in Java Collection Framework.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Bai12.iml" filepath="$PROJECT_DIR$/.idea/Bai12.iml" />
       <module fileurl="file://$PROJECT_DIR$/TH - Distinguish HashMap And HashSet/TH - Distinguish HashMap And HashSet.iml" filepath="$PROJECT_DIR$/TH - Distinguish HashMap And HashSet/TH - Distinguish HashMap And HashSet.iml" />
       <module fileurl="file://$PROJECT_DIR$/TH - Student Arrangements/TH - Student Arrangements.iml" filepath="$PROJECT_DIR$/TH - Student Arrangements/TH - Student Arrangements.iml" />
