@@ -10,6 +10,7 @@ public class Main {
         Student student2 = new Student("Mam", 21, "HN");
         Student student3 = new Student("Lam", 22, "HN");
 
+        System.out.println("...........Map");
         Map<Integer, Student> studentMap = new HashMap<Integer, Student>();
         studentMap.put(1,student1);
         studentMap.put(2,student2);
@@ -20,6 +21,7 @@ public class Main {
         }
 
         System.out.println("...........Set");
+
         Set<Student> students = new HashSet<Student>();
         students.add(student1);
         students.add(student2);
