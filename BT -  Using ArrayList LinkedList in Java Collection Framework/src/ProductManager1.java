@@ -16,8 +16,10 @@ public class ProductManager1 {
         arrProduct1.add(product3);
 
 
-//        LinkedList<Product> arrProduct2 = new LinkedList<>(arrProduct1);
-        extracted(input, arrProduct1);
+        LinkedList<Product> arrProduct2 = new LinkedList<>(arrProduct1);
+
+
+        extracted(input, arrProduct1, arrProduct2);
 
 
     }
@@ -25,7 +27,7 @@ public class ProductManager1 {
 
 
     //    Chuong trinh
-    private static void extracted(Scanner input, ArrayList<Product> arrProduct1) {
+    private static void extracted(Scanner input, ArrayList<Product> arrProduct1, LinkedList<Product> arrProduct2) {
         int selectOption;
         do {
             System.out.println("------------------------------");
@@ -41,9 +43,9 @@ public class ProductManager1 {
             selectOption = input.nextInt();
 
             switch (selectOption){
-                case 1: addProduct(arrProduct1);break;
-                case 2: setProductId(arrProduct1); break;
-                case 3: deleteProduct(arrProduct1);break;
+                case 1: addProduct(arrProduct1,arrProduct2);break;
+                case 2: setProductId(arrProduct1, arrProduct2); break;
+                case 3: deleteProduct(arrProduct2, arrProduct1);break;
                 case 4: displayArrays(arrProduct1);break;
                 case 5: searchProductName(arrProduct1);break;
                 case 6: sortArrayProduct(arrProduct1);break;
@@ -53,7 +55,7 @@ public class ProductManager1 {
 
 
     //      Them san pham
-    public static void addProduct(ArrayList<Product> arr){
+    public static void addProduct(ArrayList<Product> arr,LinkedList<Product> arr2){
         Scanner input = new Scanner(System.in);
         System.out.println("Nhập tên cho sản phẩm:");
         String name = input.nextLine();
@@ -65,6 +67,7 @@ public class ProductManager1 {
 
         Product product1 = new Product(name, price, id);
         arr.add(product1);
+        arr2.add(product1);
 
         System.out.println("Thêm thành công: "+product1);
         Product.count++;
@@ -72,7 +75,7 @@ public class ProductManager1 {
 
 
 //    Check san pham co ton tai hay khong
-    public static int checkId(ArrayList<Product> arr, String option){
+    public static int checkId(LinkedList<Product> arr, String option){
         Scanner input = new Scanner(System.in);
         int id;
         do {
@@ -83,11 +86,12 @@ public class ProductManager1 {
         return id;
     }
 
-    public static void setProductId(ArrayList<Product> arr){
+    public static void setProductId(ArrayList<Product> arr,LinkedList<Product> arr2){
         Scanner input = new Scanner(System.in);
-        int id = checkId(arr, "Nhập ID sản phẩm muốn sửa: ");
+        int id = checkId(arr2, "Nhập ID sản phẩm muốn sửa: ");
 
-        Product product = arr.get(id);
+        Product product = arr2.get(id);
+        Product product1 = arr.get(id);
 
         System.out.println("Nhập lại tên sản phẩm");
         product.setName(input.nextLine());
@@ -96,14 +100,17 @@ public class ProductManager1 {
         product.setPrice(input.nextInt() );
 
         System.out.println("Sửa thành công: "+ product);
+
+        product1 = product;
     }
 
 //      Xoa san pham
-    public static void deleteProduct(ArrayList<Product> arr){
+    public static void deleteProduct( LinkedList<Product> arr,ArrayList<Product> arr2){
         int id = checkId(arr, "Nhập ID sản phẩm muốn xóa:");
 
         Product product = arr.get(id);
         System.out.println("Da xoa "+ product.toString());
+        arr2.remove(id);
         arr.remove(id);
     }
 
