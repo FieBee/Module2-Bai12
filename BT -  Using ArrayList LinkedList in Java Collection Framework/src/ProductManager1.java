@@ -11,14 +11,11 @@ public class ProductManager1 {
         Product product1 = new Product("Quat",110,0);
         Product product2 = new Product("Nha",100,1);
         Product product3 = new Product("May Bay",1000,2);
-        arrProduct1.add(product1);
+        arrProduct1.add(product1);     
         arrProduct1.add(product2);
         arrProduct1.add(product3);
 
-
         LinkedList<Product> arrProduct2 = new LinkedList<>(arrProduct1);
-
-
         extracted(input, arrProduct1, arrProduct2);
 
 
@@ -44,7 +41,7 @@ public class ProductManager1 {
 
             switch (selectOption){
                 case 1: addProduct(arrProduct1,arrProduct2);break;
-                case 2: setProductId(arrProduct1, arrProduct2); break;
+                case 2: setProductId( arrProduct2); break;
                 case 3: deleteProduct(arrProduct2, arrProduct1);break;
                 case 4: displayArrays(arrProduct1);break;
                 case 5: searchProductName(arrProduct1);break;
@@ -86,12 +83,13 @@ public class ProductManager1 {
         return id;
     }
 
-    public static void setProductId(ArrayList<Product> arr,LinkedList<Product> arr2){
+
+//    Fix sp
+    public static void setProductId(LinkedList<Product> arr2){
         Scanner input = new Scanner(System.in);
         int id = checkId(arr2, "Nhập ID sản phẩm muốn sửa: ");
 
         Product product = arr2.get(id);
-        Product product1 = arr.get(id);
 
         System.out.println("Nhập lại tên sản phẩm");
         product.setName(input.nextLine());
@@ -101,7 +99,6 @@ public class ProductManager1 {
 
         System.out.println("Sửa thành công: "+ product);
 
-        product1 = product;
     }
 
 //      Xoa san pham
@@ -151,12 +148,7 @@ public class ProductManager1 {
 
 //    Sap xep theo Price
     private static void sortArrayProduct(ArrayList<Product> arrProduct1) {
-        arrProduct1.sort(new Comparator<Product>() {
-            @Override
-            public int compare(Product o1, Product o2) {
-                return o1.getPrice() - o2.getPrice();
-            }
-        });
+        arrProduct1.sort((o1, o2) -> o1.getPrice() - o2.getPrice());
         displayArrays(arrProduct1);
     }
 
